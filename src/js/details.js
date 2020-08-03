@@ -15,7 +15,7 @@ define([], function() {
                 console.log(data);
                 // let htmlstr = '';
                 let arr = JSON.parse(data);
-                console.log(arr);
+                // console.log(arr);
                 console.log(arr.title);
                 console.log($('.small img'));
                 $('.small img').prop('alt', arr.title);
