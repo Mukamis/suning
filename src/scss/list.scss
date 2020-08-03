@@ -1,0 +1,258 @@
+@charset 'utf-8';
+@import '_header';
+.ad-wrap,
+nav,
+.logo-wrap,
+.menu-wrap,
+.menu-bottom,
+.promotion-wrap,
+.square-wrap,
+.recommend-wrap,
+.links-wrap {
+    width: 1390px;
+    margin: 0 auto;
+}
+
+main {
+    width: 100%;
+    border-top: 2px solid #333;
+}
+
+.choose {
+    width: 1390px;
+    margin: 0 auto;
+}
+
+.choose-top {
+    border-bottom: 1px solid #eee;
+    height: 58px;
+    line-height: 58px;
+    font-size: 14px;
+}
+
+.choose-middle dl {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #eee;
+}
+
+.choose-middle dl dd {
+    float: left;
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    color: #999;
+}
+
+.choose-middle dl dt {
+    float: left;
+}
+
+.choose-middle dl a {
+    text-align: center;
+    width: 98px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    float: left;
+    position: relative;
+}
+
+.choose-middle dl a em {
+    text-align: center;
+    width: 98px;
+    height: 44px;
+    line-height: 40px;
+    margin-right: 40px;
+    display: block;
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.choose-middle dl:last-of-type a:hover em {
+    background: #fff;
+    border: 1px solid #f60;
+    border-width: 1px 1px 0 1px;
+    width: 96px;
+    height: 41px;
+    z-index: 2;
+}
+
+.choose-middle a .box {
+    width: 1190px;
+    height: 60px;
+    line-height: 60px;
+    background: #fff;
+    position: absolute;
+    top: 41px;
+    left: 0px;
+    display: none;
+    border: 1px solid #f60;
+    z-index: 1;
+    text-align: left;
+}
+
+.choose-middle .box span {
+    padding: 0 20px;
+}
+
+.choose-middle a:hover .box {
+    display: block;
+}
+
+.choose-bottom {
+    width: 100%;
+    height: 37px;
+    background: #f8f8fa;
+    line-height: 37px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.choose-bottom .seminary {
+    width: 420px;
+    display: inline-block;
+}
+
+.choose-bottom li {
+    width: 65px;
+    line-height: 37px;
+}
+
+.choose-bottom ul:nth-of-type(2) {
+    margin-right: 80px;
+}
+
+.choose-bottom ul:nth-of-type(2) li {
+    width: 65px;
+    padding: 0 10px;
+}
+
+.choose-bottom em {
+    line-height: 37px;
+}
+
+.choose-bottom .page {
+    display: inline-block;
+}
+
+.list-wrap {
+    width: 1390px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.list-wrap .imgurl img {
+    border-radius: 50%;
+}
+
+.list-wrap:after {
+    content: "";
+    flex: auto;
+}
+
+.list {
+    width: 240px;
+    height: 502px;
+    padding: 20px 15px 15px;
+    margin: 10px 10px 10px 0px;
+}
+
+.list:nth-child(5n) {
+    margin-right: 0;
+}
+
+.list:hover {
+    box-shadow: 0 0 4px 1px rgba(210, 210, 214, 0.50);
+    border: 1px solid #DDD;
+    padding: 18px 14px 14px;
+    border-radius: 2px;
+}
+
+.list .img {
+    width: 240px;
+    height: 240px;
+    position: relative;
+}
+
+.list .img img {
+    width: 240px;
+    height: 240px;
+}
+
+.list .img i {
+    width: 240px;
+    height: 240px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.list .box {
+    color: #999;
+    font-size: 16px;
+}
+
+.list p:nth-of-type(1) {
+    color: #f60;
+    margin: 6px 0;
+}
+
+.list p:nth-of-type(1) span {
+    font-size: 22px;
+}
+
+.list p:nth-of-type(2) {
+    color: #333;
+    line-height: 20px;
+}
+
+.list p:nth-of-type(2):hover {
+    color: #f60;
+}
+
+.list p:nth-of-type(4) i {
+    color: #2272c8;
+    margin-right: 2px;
+    font-weight: bold;
+}
+
+.list p:nth-of-type(5) em {
+    border: 1px solid #f60;
+    color: #F60;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.list p:nth-of-type(6) {
+    margin: 4px 4px 8px 0;
+}
+
+.list p:nth-of-type(6) span {
+    color: #fff;
+    background: #f60;
+    border-radius: 2px;
+    padding: 1px 4px;
+    margin-right: 2px;
+}
+
+.list ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid #ccc;
+}
+
+.list ul li {
+    text-align: center;
+    color: #ccc;
+    width: 100%;
+}
+
+.list ul li:not(:last-of-type) {
+    border-right: 1px solid #ccc;
+}

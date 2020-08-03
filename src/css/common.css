@@ -1,0 +1,108 @@
+/* 公共样式 */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a,
+ul,
+ol,
+li,
+i,
+em,
+strong,
+u,
+s,
+table,
+tr,
+td,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+p,
+dl,
+dt,
+dd {
+    font-size: 12px;
+    line-height: 24px;
+    text-decoration: none;
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    color: inherit;
+}
+
+ul,
+li {
+    text-align: center;
+    float: left;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    font-size: inherit;
+}
+
+.clear::after {
+    content: '';
+    display: inline-block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    clear: both;
+}
+
+.img_middle img {
+    vertical-align: middle;
+}
+
+.img_middle::after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.title_h2 {
+    font-size: 24px;
+    margin: 32px 0 14px;
+    text-align: center;
+}
+
+.title_p {
+    font-size: 12px;
+    line-height: 12px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.ms-price {
+    color: #949587;
+}
+
+.ms-price .gbPrice i {
+    color: #F60;
+}
+
+.ms-price .gbPrice em {
+    font-size: 14px;
+    color: #F60;
+}
+
+.ms-price .refPrice {
+    font-size: 10px;
+}

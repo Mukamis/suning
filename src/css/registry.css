@@ -1,0 +1,175 @@
+body {
+  background: #f8f8f8;
+}
+
+header {
+  width: 100%;
+}
+
+main {
+  width: 100%;
+  position: relative;
+  background: url(https://image.suning.cn/uimg/cms/img/159583634097558224.jpg) center no-repeat;
+}
+
+.header {
+  width: 990px;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+main {
+  width: 990px;
+  height: 570px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  float: left;
+}
+
+.tips {
+  width: 790px;
+  height: 100px;
+  position: relative;
+  float: left;
+}
+
+.tips p:nth-of-type(1) {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  color: #333;
+  background: #fefff1;
+  border: 1px solid #fecd66;
+  line-height: 16px;
+  padding: 4px 6px;
+}
+
+.tips p:nth-of-type(2) {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+}
+
+.tips p:nth-of-type(2):hover {
+  color: #ff6600;
+}
+
+.protocol {
+  width: 610px;
+  height: 450px;
+  border: 5px solid #000;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: fixed;
+  top: calc(50% - 230px);
+  left: calc(50% - 310px);
+  display: none;
+}
+
+.protocol_header p {
+  border-bottom: 1px solid #000;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.protocol_header span {
+  float: right;
+}
+
+.protocal_body a {
+  color: #f60;
+}
+
+.protocal_body p:last-of-type {
+  text-align: center;
+}
+
+.protocal_body p:last-of-type a {
+  width: 140px;
+  height: 30px;
+  display: block;
+  background: #f60;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+}
+
+main {
+  width: 990px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: 2px solid #f60;
+}
+
+.registry {
+  width: 380px;
+  height: 500px;
+  background: #fff;
+  margin: 50px auto;
+}
+
+.registry label {
+  display: inline-block;
+  width: 80px;
+  text-indent: 15px;
+}
+
+.registry p:nth-of-type(2) {
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.registry p:nth-of-type(3) {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.registry p:nth-of-type(4) {
+  border: 1px solid #ccc;
+  position: relative;
+}
+
+.registry input {
+  width: 290px;
+  height: 38px;
+  outline: none;
+  border: 0;
+}
+
+.registry input::placeholder {
+  color: #ccc;
+}
+
+.registry p:nth-last-of-type(2) input {
+  width: 380px;
+  background: #f60;
+  color: #fff;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.registry p:last-of-type a {
+  color: #f60;
+}
+
+.registry span {
+  display: block;
+  height: 20px;
+}
+
+.registry i {
+  width: 80px;
+  height: 38px;
+  position: absolute;
+  background: #ccc;
+  top: 0px;
+  right: 0px;
+  line-height: 38px;
+  font-size: 16px;
+  text-align: center;
+}
