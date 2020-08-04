@@ -59,7 +59,11 @@
     width: 1178px;
     border: 1px solid #ccc;
     padding: 15px 0px 15px 10px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+}
+
+.list-box .shop-box:last-of-type {
+    margin-bottom: 10px;
 }
 
 .shop img {
@@ -109,15 +113,12 @@
 
 .shop-bottom {
     width: 1178px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     border: 1px solid #ccc;
-    margin-top: 30px;
 }
 
-// .shop-bottom span {
-//     width: 200px;
-// }
 .shop-left {
     width: 200px;
     height: 60px;
@@ -148,4 +149,15 @@
     color: #fff;
     font-size: 20px;
     font-weight: bold;
+}
+
+.shop-box {
+    overflow: hidden;
+}
+
+.shop p input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
 }

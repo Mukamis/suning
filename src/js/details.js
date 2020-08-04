@@ -1,7 +1,8 @@
-define([], function() {
+define(['tool'], function() {
     return {
         init: function() {
             console.log('这个是details页面');
+            //渲染本产品
             let $id = location.search.substring(1).split('=')[1];
             let showwrap = $('.show-wrap');
             console.log($id);
@@ -34,6 +35,7 @@ define([], function() {
                 // console.log($sid);
 
             });
+            //渲染相关产品
             let picstr = '';
             let colorstr = '';
             $.ajax({
@@ -57,18 +59,75 @@ define([], function() {
                 console.log(picstr);
                 $('.show-price>dl:nth-of-type(4) p').html(colorstr);
                 $('.picurl>nav').html(picstr);
+
+                //切换图片
+                $('.picurl>nav li img').on('mouseover', function() {
+                    // alert(1);
+                    $('.small img').prop('src', $(this).prop('src'));
+                });
             });
 
+            //cookie
+            let arrbid = [];
+            let arrnum = [];
+
+            function getcookie() {
+                if ($.cookie('cookiebid') && $.cookie('cookienum')) {
+                    arrbid = $.cookie('cookiebid').split(',');
+                    arrnum = $.cookie('cookienum').split(',');
+                } else {
+                    arrbid = [];
+                    arrnum = [];
+                }
+            }
+            getcookie();
             //数量的加减
-            let jia = $('.jia');
-            let num = $('.num');
-            console.log(num);
-            $('.jian').on('click', function() {
-                console.log(this);
-                console.log($('.num'));
-                console.log($('.num').val());
-                $('.num').val() ++;
+            $('.btn').on('click', function() {
+                getcookie();
+                if (arrbid.indexOf($id) === -1) { //第一次添加
+                    arrbid.push($id);
+                    arrnum.push($('.num').val());
+                } else { //非第一次添加
+                    arrnum[arrbid.indexOf($id)] = Number(arrnum[arrbid.indexOf($id)]) + Number($('.num').val());
+                }
+                console.log(arrbid.join(','));
+                console.log(arrnum.join(','));
+
+                $.cookie('cookiebid', arrbid, {
+                    expires: 7,
+                    path: '/'
+                });
+                $.cookie('cookienum', arrnum, {
+                    expires: 7,
+                    path: '/'
+                });
+                //原生写法
+                // document.cookie = `cookiebid=${arrbid.join(',')};expires=7;path=/`;
+                // document.cookie = `cookienum=${arrnum.join(',')};expires=7;path=/`;
             });
+            $('.jian').on('click', function() {
+                $('.num').val(Number($('.num').val()) - 1);
+                if ($('.num').val() < 1) {
+                    $('.num').val(1);
+                }
+            });
+            $('.jia').on('click', function() {
+                $('.num').val(Number($('.num').val()) + 1);
+                if ($('.num').val() > 99) {
+                    $('.num').val(99);
+                }
+            });
+            $('.num').on('change', function() {
+                if ($('.num').val() > 99) {
+                    $('.num').val(99);
+                }
+                if ($('.num').val() < 1) {
+                    $('.num').val(1);
+                }
+            });
+
+
+
         }
     }
 });
