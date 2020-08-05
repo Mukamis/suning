@@ -30,10 +30,10 @@ define([], function() {
                         id: arrbid[index]
                     }
                 }).done(function(data) {
-                    console.log(data);
+                    // console.log(data);
                     let arr = JSON.parse(data);
-                    console.log(arr);
-                    console.log(arr.title);
+                    // console.log(arr);
+                    // console.log(arr.title);
                     htmlstr += `
                     <div class="shop-box">
                     <div class="shop-title">
@@ -56,8 +56,7 @@ define([], function() {
                         <li>¥${arr.price}</li>
                         <li>
                             <p><input type="button" value="-" class="jian"> 
-                            <input type="button" value="${arrnum[index]}" class="count"> 
-                            
+                            <input type="text" value="${arrnum[index]}" class="num"> 
                              <input type="button" value="+" class="jia"></p>
                             <p>最多可买 99件</p>
                         </li>
@@ -72,12 +71,40 @@ define([], function() {
                     </div>
                     `;
                     $('.list-box').html(htmlstr);
-                    console.log(htmlstr);
+                    // console.log(htmlstr);
                     $('.shop-right em').html(arrbid.length);
+
+                    //数量的加减
+                    console.log($('.jian'));
+                    console.log($('.num'));
+                    console.log($('.jia'));
+                    $('.jian').on('click', function() {
+                        // alert($(this).index());//代表第几个商品的减
+                        $('.num').eq($(this).index()).val(Number($('.num').eq($(this).index()).val()) - 1);
+                        if ($('.num').val() < 1) {
+                            $('.num').val(1);
+                        }
+                    });
+                    $('.jia').on('click', function() {
+                        alert($(this).index()); //代表第几个商品的加
+                        $('.num').eq($(this).index()).val(Number($('.num').eq($(this).index()).val()) + 1);
+                        if ($('.num').eq($(this).index()).val() > 99) {
+                            $('.num').eq($(this).index()).val(99);
+                        }
+                    });
+                    $('.num').on('change', function() {
+                        if ($('.num').eq($(this).index()).val() > 99) {
+                            $('.num').eq($(this).index()).val(99);
+                        }
+                        if ($('.num').eq($(this).index()).val() < 1) {
+                            $('.num').eq($(this).index()).val(1);
+                        }
+                    });
                 });
             });
             // $('.shop').html(htmlstr);
             // $('.shop-title em').html();
+
         }
     }
 });

@@ -13,6 +13,7 @@ define([], function() {
                 for (let value of arr) {
                     console.log(value.urlimg);
                     htmlstr += `
+                    <a href="details.html?id=${value.id}">
                     <div class="list">
                         <div class="img">
                             <img alt="Apple iPhone 11 128G 黑色 移动联通电信4G全网通手机" src="${value.img}" picpriority="1">
@@ -50,6 +51,7 @@ define([], function() {
 
                         </div>
                     </div>
+                    </a>
                     `;
                 }
                 listwrap.html(htmlstr);

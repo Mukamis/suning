@@ -101,6 +101,7 @@ define(['tool'], function() {
                     expires: 7,
                     path: '/'
                 });
+                alert('成功加入购物车');
                 //原生写法
                 // document.cookie = `cookiebid=${arrbid.join(',')};expires=7;path=/`;
                 // document.cookie = `cookienum=${arrnum.join(',')};expires=7;path=/`;
