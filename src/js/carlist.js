@@ -86,6 +86,7 @@ define([], function() {
                         }
                     });
                     $('.jia').on('click', function() {
+                        console.log($(this));
                         alert($(this).index()); //代表第几个商品的加
                         $('.num').eq($(this).index()).val(Number($('.num').eq($(this).index()).val()) + 1);
                         if ($('.num').eq($(this).index()).val() > 99) {
