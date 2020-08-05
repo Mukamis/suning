@@ -92,6 +92,7 @@ main {
 .small {
     width: 450px;
     height: 450px;
+    position: relative;
 }
 
 .small img {
@@ -252,4 +253,32 @@ button.btn {
     display: block;
     padding: 0 20px;
     border: 0;
+}
+
+.big {
+    width: 450px;
+    height: 450px;
+    position: absolute;
+    top: 445px;
+    left: 810px;
+    overflow: hidden;
+    z-index: 4;
+    display: none;
+}
+
+.big img {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.small .xf {
+    width: 225px;
+    height: 225px;
+    background: rgba(255, 0, 0, 0.5);
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }

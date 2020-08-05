@@ -127,7 +127,55 @@ define(['tool'], function() {
                 }
             });
 
-
+            let lll = 0;
+            let ttt = 0;
+            let bili = 0;
+            $('.xf').hide();
+            $('.small').on('mouseover', function(ev) {
+                $('.big').show();
+                $('.xf').show();
+                //小放移动
+                $('.xf').css({
+                    width: $('.big').width() / $('.big img').width() * $('.small').width(),
+                    height: $('.big').height() / $('.big img').height() * $('.small').height()
+                });
+                $('.small').on('mousemove', function(ev) {
+                    console.log(ev.pageX, ev.pageY);
+                    // console.log($('.xf').width() / 2, $('.xf').height() / 2);
+                    // console.log($('.small').offset().left, $('.small').offset().top);
+                    lll = ev.pageX - $('.xf').width() / 2 - $('.small').offset().left;
+                    ttt = ev.pageY - $('.xf').height() / 2 - $('.small').offset().top;
+                    bili = $('.big img').width() / $('.small').width();
+                    // console.log(bili);
+                    console.log(lll, ttt);
+                    console.log($('.small').width(), $('.small').height());
+                    if (lll <= 0) {
+                        lll = 0;
+                    }
+                    if (lll >= $('.small').width() - $('.xf').width()) {
+                        lll = $('.small').width() - $('.xf').width();
+                    }
+                    if (ttt <= 0) {
+                        ttt = 0;
+                    }
+                    if (ttt >= $('.small').height() - $('.xf').height()) {
+                        ttt = $('.small').height() - $('.xf').height();
+                    }
+                    $('.xf').css({
+                        'left': lll,
+                        'top': ttt
+                    });
+                    console.log($('.big img'));
+                    $('.big img').css({
+                        'left': -lll * bili,
+                        'top': -ttt * bili
+                    });
+                });
+                $('.small').on('mouseout', function() {
+                    $('.big').hide();
+                    $('.xf').hide();
+                });
+            });
 
         }
     }
