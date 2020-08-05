@@ -1,4 +1,4 @@
-define(['jquery.color'], function() {
+define(['jquery.color', 'jquery.lazyload'], function() {
     return {
         init: function() {
             console.log('这个是index页面');
@@ -161,7 +161,7 @@ define(['jquery.color'], function() {
                     htmlstr += `
                     <div class="recommend">
                         <div class="img">
-                            <img src="${value.img}">
+                            <img class="lazy" data-original="${value.img}" width="200" height="200">
                         </div>
                         <div class="box">
                             <p class="ms-price" title="${value.title}">${value.title}</p>
@@ -174,6 +174,10 @@ define(['jquery.color'], function() {
                     `;
                 }
                 recommendbox.html(htmlstr);
+            });
+            //懒加载
+            $(function() {
+                $("img.lazy").lazyload({ effect: "fadeIn" });
             });
 
 
