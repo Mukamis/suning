@@ -23,7 +23,8 @@ define([], function() {
                     }
                 }).done(function(data) {
                     if (data) {
-                        console.log(111);
+                        console.log(data);
+                        // alert('用户名或密码错误');
                         location.href = 'http://localhost/suning/src/shouye.html';
                     } else {
                         alert('用户名或密码错误');

@@ -12,6 +12,7 @@ define(['tool'], function(tool) {
             let em = $('em');
 
             let username_flag = false;
+            let username_flag1 = false;
             let password_flag = false;
             let yzm_flag = false;
             let submit_flag = false;
@@ -20,7 +21,7 @@ define(['tool'], function(tool) {
                 let reg = /^1[3,5,7,8]\d{9}$/;
                 if (username.val() !== '') {
                     if (reg.test($(this).val())) {
-                        span.eq(0).html('√');
+                        span.eq(0).html('手机号格式正确');
                         username_flag = true;
                     } else {
                         span.eq(0).html('手机号输入错误');
@@ -69,7 +70,7 @@ define(['tool'], function(tool) {
                         span.eq(2).html('密码格式错误');
                         password_flag = false;
                     } else {
-                        span.eq(2).html('√');
+                        span.eq(2).html('密码格式正确');
                         password_flag = true;
                     }
                 } else {
@@ -82,7 +83,7 @@ define(['tool'], function(tool) {
                 let reg = /^1[3,5,7,8]\d{9}$/;
                 if (yzm.val() !== '') {
                     if (yzm.val().toLowerCase() === i.html().toLowerCase()) {
-                        span.eq(3).html('√');
+                        span.eq(3).html('验证码输入正确');
                         yzm_flag = true;
                     } else {
                         span.eq(3).html('验证码输入错误');
@@ -99,14 +100,31 @@ define(['tool'], function(tool) {
                 i.html(tool.ranYzm());
             });
 
-            submit.on('click', function() {
+            // submit.on('click', function() {
+            //     username.blur();
+            //     password.blur();
+            //     yzm.blur();
+            //     // if (username_flag && username_flag1 && password_flag && yzm_flag) {
+            //     //     alert('注册成功');
+            //     // } else {
+            //     //     alert('注册失败');
+            //     // }
+            // });
+
+            $('.registry form').on('submit', function() {
                 username.blur();
                 password.blur();
                 yzm.blur();
-                if (username_flag && password_flag && yzm_flag) {
-                    console.log('提交');
+                if (username_flag && username_flag1 && password_flag && yzm_flag) {
+                    alert('注册成功');
+                    return true;
+                } else {
+                    alert('注册失败');
+                    return false;
                 }
             });
+
+
 
             username.on('blur', function() {
                 $.ajax({
@@ -118,8 +136,10 @@ define(['tool'], function(tool) {
                 }).done(function(data) {
                     if (data) {
                         em.eq(0).html('已被注册');
+                        username_flag1 = flase;
                     } else {
                         em.eq(0).html('可注册');
+                        username_flag1 = true;
                     }
                 });
             });
