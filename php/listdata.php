@@ -4,7 +4,7 @@ include "conn.php";//引入数据库
 
 $pagesize = 10; //单个页面展示的数据条数，自由设置
 
-$sql = "select * from taobaogoods"; //获取所有的数据
+$sql = "select * from phone order by id "; //获取所有的数据
 
 $result = $conn->query($sql); //获取数据的结果集(记录集)
 
@@ -28,13 +28,19 @@ $page = ($pagevalue - 1) * $pagesize;
 //limit接收一个或者两个数字参数(整数)
 //参1：数据开始位置的索引(从0开始)，偏移量
 //参2：返回的记录集数目。
-//select * from taobaogoods limit 0 , 10  从偏移量0开始 取10条
+//select * from phone limit 0 , 10  从偏移量0开始 取10条
 //limit 10,10  从偏移量10开始 取10条
 //limit 20,10 从偏移量20开始  取10条
 
-$sql1 = "select * from taobaogoods limit $page,$pagesize";
-$res = $conn->query($sql1);
+// if (isset($_GET['orderby'])) {//接收传入的排序方式
+//     $orderby = $_GET['orderby'];
+//     $sql1 = "select * from phone order by price $orderby limit $page,$pagesize ";
+// } else {
+//     $sql1 = "select * from phone order by id limit $page,$pagesize";
+// }
+$sql1 = "select * from phone order by id limit $page,$pagesize";
 
+$res = $conn->query($sql1);
 
 //通过二维数组输出
 // $result->num_rows; //记录集的条数

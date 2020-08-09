@@ -31,6 +31,7 @@ define([], function() {
                     }
                 }).done(function(data) {
                     // console.log(data);
+                    str = 0;
                     let arr = JSON.parse(data);
                     // console.log(arr);
                     // console.log(arr.title);
@@ -106,13 +107,18 @@ define([], function() {
                         });
                     });
                     //输入值改变
+                    let reg;
                     $('.num').on('change', function() {
                         //$('.num').index(this)
-                        if ($('.num').eq($('.num').index(this)).val() > 99) {
-                            $('.num').eq($('.num').index(this)).val(99);
+                        reg = /\D/;
+                        if (reg.test($('.num').eq($('.num').index(this)).val())) {
+                            $('.num').eq($(this).index(this)).val('1');
                         }
-                        if ($('.num').eq($(this).index()).val() < 1) {
-                            $('.num').eq($(this).index()).val(1);
+                        if ($('.num').eq($('.num').index(this)).val() > 99) {
+                            $('.num').eq($('.num').index(this)).val('99');
+                        }
+                        if ($('.num').eq($(this).index(this)).val() < 1) {
+                            $('.num').eq($(this).index(this)).val('1');
                         }
                         arrnum[$('.num').index(this)] = $('.num').eq($('.num').index(this)).val();
                         $.cookie('cookienum', arrnum, {
@@ -133,35 +139,49 @@ define([], function() {
                             path: '/'
                         });
                         alert('已删除');
-                        window.location.reload();
+                        $('.list-box').eq($('.del').index(this)).remove();
                     });
-                    total();
+                    // total();
                     //总价变化
 
+
+
                     function total() {
+                        str = 0;
                         // alert("价格" + arr.price);
-                        // alert("数量" + arrnum[index]);
-                        str += arr.price * arrnum[index];
-                        // alert(str);
-                        $('.shop-right span:nth-of-type(3) p:nth-of-type(1)').html('总价（含运费）：¥' + str + '.00');
+                        console.log($("input#check"));
+                        $("input#check").each(function() {
+                            console.log($(this).prop('checked'));
+                            if ($(this).prop('checked')) {
+                                // alert($("input#check").index($(this)));
+                                // alert(arrnum[$("input#check").index($(this))]);
+                                str += arr.price * arrnum[$("input#check").index($(this))];
+                                // alert(str);
+                                $('.shop-right span:nth-of-type(3) p:nth-of-type(1)').html('总价（含运费）：¥' + str + '.00');
+                            }
+                        });
                     }
 
                     //全选按钮
                     //如果点击全选，所有都选
                     $('#allcheck').on('click', function() {
                         $('input').prop('checked', $('#allcheck').prop('checked'));
+                        total();
                     });
                     $('#allcheck1').on('click', function() {
                         $('input').prop('checked', $('#allcheck1').prop('checked'));
+                        total();
                     });
                     //关联店铺
                     $('.list-box li:nth-of-type(1) input').on('click', function() {
                         // alert($('.list-box li:nth-of-type(1) input').index(this));
                         $('.shop-title #allstore').eq($('.list-box li:nth-of-type(1) input').index(this)).prop('checked', $('.list-box li:nth-of-type(1) input').eq($('.list-box li:nth-of-type(1) input').index(this)).prop('checked'));
+                        total();
                     });
                     $('.shop-title #allstore').on('click', function() {
                         alert($('.shop-title #allstore').index(this));
                         $('.list-box li:nth-of-type(1) input').eq($('.shop-title #allstore').index(this)).click();
+                        total();
                     });
                     ////如果全选了，全选按钮也勾上
                     $('.list-box li:nth-of-type(1) input').on('click', function() {
@@ -172,6 +192,7 @@ define([], function() {
                             $('#allcheck1').prop('checked', false);
                             $('#allcheck').prop('checked', false);
                         }
+                        total();
                     });
                 });
             });

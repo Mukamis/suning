@@ -24,7 +24,14 @@ define([], function() {
                 }).done(function(data) {
                     if (data) {
                         console.log(data);
-                        // alert('用户名或密码错误');
+                        $.cookie('cookiename', username.val(), {
+                            expires: 7,
+                            path: '/'
+                        });
+                        $.cookie('cookiepassword', password.val(), {
+                            expires: 7,
+                            path: '/'
+                        });
                         location.href = 'http://localhost/suning/src/shouye.html';
                     } else {
                         alert('用户名或密码错误');

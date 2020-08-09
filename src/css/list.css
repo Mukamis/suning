@@ -433,4 +433,8 @@ main {
   border-right: 1px solid #ccc;
 }
 
+.page input.jump-ipt {
+  width: 20px;
+}
+
 /*# sourceMappingURL=list.css.map */

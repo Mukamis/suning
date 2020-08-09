@@ -119,6 +119,10 @@ define(['tool'], function() {
                 }
             });
             $('.num').on('change', function() {
+                reg = /\D/;
+                if (reg.test($('.num').val())) {
+                    $('.num').eq($(this).index(this)).val('1');
+                }
                 if ($('.num').val() > 99) {
                     $('.num').val(99);
                 }
